@@ -1,8 +1,9 @@
-﻿namespace NServiceBus.Transport.Msmq
+﻿using NServiceBus.Transport.Msmq.Messaging;
+
+namespace NServiceBus.Transport.Msmq
 {
     using System;
     using System.ComponentModel;
-    using System.Messaging;
     using System.Runtime.InteropServices;
     using System.Security.Principal;
 
@@ -77,13 +78,13 @@
 
         public static bool TryGetPermissions(this MessageQueue queue, string user, out MessageQueueAccessRights? rights, out AccessControlEntryType? accessType)
         {
-            if (!administerGranted)
-            {
-                var permission = new MessageQueuePermission(MessageQueuePermissionAccess.Administer, PREFIX_FORMAT_NAME + queue.FormatName);
-                permission.Demand();
+            //if (!administerGranted)
+            //{
+            //    var permission = new MessageQueuePermission(MessageQueuePermissionAccess.Administer, PREFIX_FORMAT_NAME + queue.FormatName);
+            //    permission.Demand();
 
-                administerGranted = true;
-            }
+            //    administerGranted = true;
+            //}
 
             var sid = GetSidForUser(user);
 

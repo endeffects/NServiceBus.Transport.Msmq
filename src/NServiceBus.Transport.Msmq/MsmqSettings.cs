@@ -1,8 +1,9 @@
+using NServiceBus.Transport.Msmq.Messaging;
+
 namespace NServiceBus.Transport.Msmq
 {
     using System;
     using System.Collections.Generic;
-    using System.Messaging;
     using Settings;
 
 

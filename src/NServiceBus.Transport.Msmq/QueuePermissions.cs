@@ -1,6 +1,7 @@
-﻿namespace NServiceBus.Transport.Msmq
+﻿using NServiceBus.Transport.Msmq.Messaging;
+
+namespace NServiceBus.Transport.Msmq
 {
-    using System.Messaging;
     using System.Security;
     using System.Security.Principal;
     using Logging;

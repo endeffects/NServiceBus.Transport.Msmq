@@ -1,7 +1,8 @@
-﻿namespace NServiceBus.Persistence.Msmq
+﻿using NServiceBus.Transport.Msmq.Messaging;
+
+namespace NServiceBus.Persistence.Msmq
 {
     using System;
-    using System.Messaging;
     using Features;
     using Logging;
     using Settings;

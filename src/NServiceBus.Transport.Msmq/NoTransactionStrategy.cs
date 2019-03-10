@@ -1,7 +1,8 @@
+using NServiceBus.Transport.Msmq.Messaging;
+
 namespace NServiceBus.Transport.Msmq
 {
     using System;
-    using System.Messaging;
     using System.Threading.Tasks;
     using Transport;
 

@@ -1,6 +1,8 @@
+using NServiceBus.Transport.Msmq.Messaging;
+
 namespace NServiceBus.Transport.Msmq
 {
-    using System.Messaging;
+    using System;
     using System.Security.Principal;
     using System.Threading.Tasks;
     using Logging;
@@ -50,24 +52,25 @@ namespace NServiceBus.Transport.Msmq
 
             try
             {
-                using (var queue = MessageQueue.Create(queuePath, useTransactionalQueues))
-                {
-                    Logger.Debug($"Created queue, path: [{queuePath}], identity: [{identity}], transactional: [{useTransactionalQueues}]");
+                throw new NotImplementedException($"Create Queue {queuePath} with Write, Receive and Peek Permissions. Also set local admin group permissions to full control");
+                //using (var queue = MessageQueue.Create(queuePath, useTransactionalQueues))
+                //{
+                //    Logger.Debug($"Created queue, path: [{queuePath}], identity: [{identity}], transactional: [{useTransactionalQueues}]");
 
-                    try
-                    {
-                        queue.SetPermissions(identity, MessageQueueAccessRights.WriteMessage);
-                        queue.SetPermissions(identity, MessageQueueAccessRights.ReceiveMessage);
-                        queue.SetPermissions(identity, MessageQueueAccessRights.PeekMessage);
+                //    try
+                //    {
+                //        queue.SetPermissions(identity, MessageQueueAccessRights.WriteMessage);
+                //        queue.SetPermissions(identity, MessageQueueAccessRights.ReceiveMessage);
+                //        queue.SetPermissions(identity, MessageQueueAccessRights.PeekMessage);
 
-                        queue.SetPermissions(LocalAdministratorsGroupName, MessageQueueAccessRights.FullControl);
-                    }
-                    catch (MessageQueueException permissionException) when (permissionException.MessageQueueErrorCode == MessageQueueErrorCode.FormatNameBufferTooSmall)
-                    {
-                        Logger.Warn($"The name for queue '{queue.FormatName}' is too long for permissions to be applied. Please consider a shorter endpoint name.", permissionException);
-                    }
+                //        queue.SetPermissions(LocalAdministratorsGroupName, MessageQueueAccessRights.FullControl);
+                //    }
+                //    catch (MessageQueueException permissionException) when (permissionException.MessageQueueErrorCode == MessageQueueErrorCode.FormatNameBufferTooSmall)
+                //    {
+                //        Logger.Warn($"The name for queue '{queue.FormatName}' is too long for permissions to be applied. Please consider a shorter endpoint name.", permissionException);
+                //    }
 
-                }
+                //}
             }
             catch (MessageQueueException ex) when (ex.MessageQueueErrorCode == MessageQueueErrorCode.QueueExists)
             {

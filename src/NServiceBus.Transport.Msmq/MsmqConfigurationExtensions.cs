@@ -1,8 +1,9 @@
+using NServiceBus.Transport.Msmq.Messaging;
+
 namespace NServiceBus
 {
     using System;
     using System.Collections.Generic;
-    using System.Messaging;
     using System.Transactions;
     using Configuration.AdvancedExtensibility;
     using Routing;
