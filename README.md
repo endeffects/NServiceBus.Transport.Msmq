@@ -1,4 +1,4 @@
-# Experimental NServiceBus.Transport.Msmq for .net Core
+# NServiceBus.Transport.Msmq for .net Core
 This is an attempt to get the Msmq Transport running on .net Core.
 
 # Current state
