@@ -2,8 +2,9 @@
 This is an attempt to get the Msmq Transport running on .net Core.
 
 # Current state
-- The Installer is disabled because it is not supported. You need to create the queues manually.
-- You can read and write to the queues, but the message format needs to be fixed.
+- The Installer is disabled because all advanced features such as code access security, execute permissions and Active Directory integration is not supported. So you need to create the queues manually.
+- You can read and write to the queues which works with the InMemoryPersistence. 
+- The MsmqPersistence raises an invalid version exception.
 
 # Original Packages
 MSMQ transport for NServiceBus
